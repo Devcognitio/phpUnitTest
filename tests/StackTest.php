@@ -3,9 +3,6 @@ use PHPUnit\Framework\TestCase;
 
 class StackTest extends TestCase {
 
-    /**
-     * @covers
-     */
     public function testPushAndPop() {
         $stack = [];
         $this->assertSame(0, count($stack));

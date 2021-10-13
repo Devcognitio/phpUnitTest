@@ -3,9 +3,6 @@ use PHPUnit\Framework\TestCase;
 
 class ColaFIFOTest extends TestCase {
     
-    /**
-     * @covers
-     */
     public function testDebeRetornarElPrimerElementoIngresado(){
         $cola = new ColaFIFO;
         $cola->push("uno");
@@ -16,14 +13,25 @@ class ColaFIFOTest extends TestCase {
         $this->assertEquals("dos", $elemento);
     }
 
-    /**
-     * @covers
-     */
     public function testIniciaLaColaVacia(){
         $cola = new ColaFIFO;
 
         $items = $cola->count();
 
         $this->assertEquals(0, $items);
+    }
+
+    public function testAlRerirarUnElementoDisminuyeElCount(){
+        $cola = new ColaFIFO;
+        $cola->push("uno");
+        $cola->push("dos");
+        $cola->push("tres");
+        $items = $cola->count();
+        $this->assertEquals(3, $items);
+
+        $cola->pull();
+        $items = $cola->count();
+
+        $this->assertEquals(2, $items);
     }
 }
