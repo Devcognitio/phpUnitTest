@@ -5,6 +5,14 @@ use PHPUnit\Framework\TestCase;
 
 class FormateadorTest extends TestCase {
 
+    public function testDebeRetornarVacioSiNoExisteTexto(){
+        $formateador = new Formateador;
+
+        $formateado = $formateador->formatear("");
+
+        $this->assertSame("", $formateado);
+    }
+
     /**
      * @dataProvider formateadorTestProvider
      */
